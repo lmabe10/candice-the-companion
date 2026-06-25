@@ -29,7 +29,7 @@ export default function Footer() {
               { label: 'About', href: '#about' },
               { label: 'Services', href: '#services' },
               { label: 'Qualifications', href: '#qualifications' },
-              { label: 'Why Candice', href: '#why' },
+              { label: 'Who Is This For', href: '#who' },
               { label: 'FAQ', href: '#faq' },
               { label: 'Testimonials', href: '#testimonials' },
               { label: 'Contact', href: '#contact' },

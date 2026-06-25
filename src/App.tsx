@@ -3,7 +3,7 @@ import Hero from './components/Hero';
 import About from './components/About';
 import Services from './components/Services';
 import Qualifications from './components/Qualifications';
-import WhyChoose from './components/WhyChoose';
+import WhoIsThisFor from './components/WhoIsThisFor';
 import FAQ from './components/FAQ';
 import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
@@ -18,7 +18,7 @@ export default function App() {
         <About />
         <Services />
         <Qualifications />
-        <WhyChoose />
+        <WhoIsThisFor />
         <FAQ />
         <Testimonials />
         <Contact />
