@@ -27,6 +27,7 @@ export default function Footer() {
             <p className="font-heading font-semibold text-teal-200 text-xs uppercase tracking-wider mb-1">Quick Links</p>
             {[
               { label: 'About', href: '#about' },
+              { label: 'Services', href: '#services' },
               { label: 'Qualifications', href: '#qualifications' },
               { label: 'Why Candice', href: '#why' },
               { label: 'FAQ', href: '#faq' },

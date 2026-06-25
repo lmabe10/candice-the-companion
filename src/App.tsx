@@ -1,6 +1,7 @@
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
+import Services from './components/Services';
 import Qualifications from './components/Qualifications';
 import WhyChoose from './components/WhyChoose';
 import FAQ from './components/FAQ';
@@ -15,6 +16,7 @@ export default function App() {
       <main>
         <Hero />
         <About />
+        <Services />
         <Qualifications />
         <WhyChoose />
         <FAQ />
