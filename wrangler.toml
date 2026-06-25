@@ -1,3 +1,17 @@
 name = "candice-the-companion"
 pages_build_output_dir = "dist"
 compatibility_date = "2024-09-01"
+
+# Plain-text variables (managed here, not in the Cloudflare dashboard).
+# Update CONTACT_TO_EMAIL to the inbox that should receive form submissions.
+[vars]
+CONTACT_TO_EMAIL = "candice@candicethecompanion.com"
+CONTACT_FROM_EMAIL = "Candice the Companion <candice@candicethecompanion.com>"
+
+[env.production.vars]
+CONTACT_TO_EMAIL = "candice@candicethecompanion.com"
+CONTACT_FROM_EMAIL = "Candice the Companion <candice@candicethecompanion.com>"
+
+[env.preview.vars]
+CONTACT_TO_EMAIL = "candice@candicethecompanion.com"
+CONTACT_FROM_EMAIL = "Candice the Companion <candice@candicethecompanion.com>"
