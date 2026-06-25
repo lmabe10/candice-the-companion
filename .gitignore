@@ -15,3 +15,6 @@ dist/
 
 # Vite
 .vite/
+
+# Cloudflare local secrets (copy from .env.example)
+.dev.vars

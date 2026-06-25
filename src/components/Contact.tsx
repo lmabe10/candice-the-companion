@@ -7,12 +7,14 @@ interface FormState {
   email: string;
   phone: string;
   message: string;
+  website: string;
 }
 
 export default function Contact() {
   const sectionRef = useReveal() as React.RefObject<HTMLElement>;
-  const [form, setForm] = useState<FormState>({ name: '', email: '', phone: '', message: '' });
+  const [form, setForm] = useState<FormState>({ name: '', email: '', phone: '', message: '', website: '' });
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -21,10 +23,29 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('sending');
-    // Simulated send — replace with real endpoint when ready
-    await new Promise((r) => setTimeout(r, 1200));
-    setStatus('sent');
-    setForm({ name: '', email: '', phone: '', message: '' });
+    setErrorMessage('');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+
+      const data = (await response.json()) as { error?: string };
+
+      if (!response.ok) {
+        setErrorMessage(data.error ?? 'Something went wrong. Please try again.');
+        setStatus('error');
+        return;
+      }
+
+      setStatus('sent');
+      setForm({ name: '', email: '', phone: '', message: '', website: '' });
+    } catch {
+      setErrorMessage('Unable to reach the server. Please check your connection and try again.');
+      setStatus('error');
+    }
   };
 
   const inputClass =
@@ -179,6 +200,23 @@ export default function Contact() {
                       className={`${inputClass} resize-none`}
                     />
                   </div>
+
+                  <input
+                    type="text"
+                    name="website"
+                    value={form.website}
+                    onChange={handleChange}
+                    tabIndex={-1}
+                    autoComplete="off"
+                    aria-hidden="true"
+                    className="hidden"
+                  />
+
+                  {status === 'error' && (
+                    <p className="rounded-xl border border-pink-200 bg-pink-50 px-4 py-3 font-body text-sm text-pink-700">
+                      {errorMessage}
+                    </p>
+                  )}
 
                   <button
                     type="submit"
