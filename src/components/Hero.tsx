@@ -25,7 +25,7 @@ export default function Hero() {
       <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-teal-100/40 blur-3xl -translate-y-1/4 translate-x-1/4 pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-pink-100/40 blur-3xl translate-y-1/4 -translate-x-1/4 pointer-events-none" />
 
-      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 pt-28 pb-16 w-full">
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 pt-28 pb-8 lg:pb-16 w-full">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
 
           {/* Text */}
@@ -57,20 +57,6 @@ export default function Hero() {
                 Learn More
               </button>
             </div>
-
-            {/* Trust indicators */}
-            <div className="mt-12 flex flex-wrap gap-6 justify-center lg:justify-start">
-              {[
-                { value: '10+', label: 'Years Experience' },
-                { value: 'Fully', label: 'Insured' },
-                { value: 'York &', label: 'Simcoe County' },
-              ].map((stat) => (
-                <div key={stat.label} className="text-center">
-                  <div className="font-heading font-bold text-2xl text-teal-600">{stat.value}</div>
-                  <div className="font-body text-xs text-gray-500 mt-0.5">{stat.label}</div>
-                </div>
-              ))}
-            </div>
           </div>
 
           {/* Photo */}
@@ -85,9 +71,9 @@ export default function Hero() {
             <div className="relative z-10">
               <div className="relative w-[300px] sm:w-[360px] lg:w-[400px] aspect-[3/4] rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white">
                 <img
-                  src="/images/Candice_Headshots_March_2026_-_Dylan_and_Sandra_Photography_-_0003.jpg"
-                  alt="Candice - Companion Care Professional"
-                  className="w-full h-full object-cover object-top"
+                  src="/images/Candice_Cards.png"
+                  alt="Candice playing cards with a client, sharing a warm moment of companionship"
+                  className="w-full h-full object-cover object-center"
                 />
               </div>
               {/* Floating badge */}
@@ -106,8 +92,11 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Scroll cue */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-teal-400 animate-bounce cursor-pointer" onClick={scrollToAbout}>
+        {/* Scroll cue — below content on mobile, anchored at bottom on desktop */}
+        <div
+          className="mt-12 flex flex-col items-center gap-1 text-teal-400 animate-bounce cursor-pointer lg:absolute lg:bottom-8 lg:left-1/2 lg:-translate-x-1/2 lg:mt-0"
+          onClick={scrollToAbout}
+        >
           <span className="font-body text-xs tracking-wider uppercase">Scroll</span>
           <ChevronDown size={18} />
         </div>

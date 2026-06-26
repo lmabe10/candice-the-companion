@@ -14,7 +14,7 @@ export default function Footer() {
             <img
               src="/images/CTC_LOGO_TRANSPARENCY_FOR_WHITE_BG.png"
               alt="Candice the Companion"
-              className="h-16 w-auto object-contain brightness-0 invert"
+              className="h-[5.5rem] md:h-[7rem] w-auto object-contain brightness-0 invert"
             />
             <div>
               <p className="font-heading font-semibold text-white text-base">Candice the Companion</p>

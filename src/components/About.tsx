@@ -1,24 +1,4 @@
-import { useRef } from 'react';
 import { useReveal } from '../hooks/useReveal';
-import { Heart, Star, Users } from 'lucide-react';
-
-const highlights = [
-  {
-    icon: Heart,
-    title: 'Compassionate by Nature',
-    body: 'Every visit is grounded in empathy, warmth, and genuine care for the individuals I support.',
-  },
-  {
-    icon: Star,
-    title: '10+ Years Experience',
-    body: 'A decade of hands-on caregiving experience across diverse needs and backgrounds.',
-  },
-  {
-    icon: Users,
-    title: 'Family Peace of Mind',
-    body: 'I serve as a trusted extension of your family, providing reliable support when you cannot be there.',
-  },
-];
 
 export default function About() {
   const sectionRef = useReveal() as React.RefObject<HTMLElement>;
@@ -50,11 +30,6 @@ export default function About() {
                   className="w-full h-full object-cover object-top"
                 />
               </div>
-              {/* Stat pill */}
-              <div className="absolute -top-5 -right-5 sm:-right-8 bg-white border border-teal-100 rounded-2xl shadow-card px-5 py-3 text-center">
-                <div className="font-heading font-bold text-2xl text-teal-600">10+</div>
-                <div className="font-body text-xs text-gray-500">Years of Care</div>
-              </div>
             </div>
           </div>
 
@@ -76,22 +51,6 @@ export default function About() {
               I know that families can't always be there in person, and my goal is to provide trusted companionship and support that helps loved ones feel valued, respected, and cared for. Every individual deserves dignity, connection, and the opportunity to enjoy the best possible quality of life — and I am honored to be part of that.
             </p>
           </div>
-        </div>
-
-        {/* Highlight cards */}
-        <div className="mt-20 grid sm:grid-cols-3 gap-6">
-          {highlights.map((h, i) => (
-            <div
-              key={h.title}
-              className={`reveal reveal-delay-${i + 1} group bg-gradient-to-br from-white to-teal-50 rounded-2xl p-7 border border-teal-100 shadow-card hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300`}
-            >
-              <div className="w-12 h-12 rounded-xl bg-teal-100 group-hover:bg-teal-500 transition-colors duration-300 flex items-center justify-center mb-4">
-                <h.icon className="w-5 h-5 text-teal-600 group-hover:text-white transition-colors duration-300" />
-              </div>
-              <h3 className="font-heading font-semibold text-teal-800 mb-2">{h.title}</h3>
-              <p className="font-body text-gray-600 text-sm leading-relaxed">{h.body}</p>
-            </div>
-          ))}
         </div>
       </div>
     </section>

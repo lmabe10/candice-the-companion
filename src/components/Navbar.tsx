@@ -38,7 +38,7 @@ export default function Navbar() {
           <img
             src="/images/CTC_LOGO_TRANSPARENCY_FOR_WHITE_BG.png"
             alt="Candice the Companion"
-            className="h-12 sm:h-14 w-auto object-contain"
+            className="h-[4.25rem] md:h-[5.5rem] w-auto object-contain"
           />
         </a>
 
