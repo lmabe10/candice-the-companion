@@ -104,16 +104,17 @@ export default function Testimonials() {
         </div>
 
         {/* Main card carousel */}
-        <div className="reveal reveal-delay-1 relative max-w-3xl mx-auto">
-          {/* Decorative blobs */}
-          <div className="absolute -top-10 -left-10 w-40 h-40 rounded-full bg-teal-50 blur-2xl pointer-events-none" />
-          <div className="absolute -bottom-10 -right-10 w-40 h-40 rounded-full bg-pink-50 blur-2xl pointer-events-none" />
+        <div className="reveal reveal-delay-1 max-w-3xl mx-auto">
+          <div className="relative">
+            {/* Decorative blobs — scoped to the card so they don't overlap nav controls */}
+            <div className="absolute -top-10 -left-10 w-40 h-40 rounded-full bg-teal-50 blur-2xl pointer-events-none" />
+            <div className="absolute -bottom-10 -right-10 w-40 h-40 rounded-full bg-pink-50 blur-2xl pointer-events-none" />
 
-          <div
-            className={`relative bg-gradient-to-br from-white to-teal-50 border border-teal-100 rounded-3xl shadow-card p-8 sm:p-12 transition-all duration-200 ${
-              animating ? 'opacity-0 scale-[0.98]' : 'opacity-100 scale-100'
-            }`}
-          >
+            <div
+              className={`relative bg-gradient-to-br from-white to-teal-50 border border-teal-100 rounded-3xl shadow-card p-8 sm:p-12 transition-all duration-200 ${
+                animating ? 'opacity-0 scale-[0.98]' : 'opacity-100 scale-100'
+              }`}
+            >
             {/* Large quote icon */}
             <div className="absolute top-8 right-8 sm:top-10 sm:right-10 opacity-10">
               <Quote className="w-16 h-16 text-teal-600 fill-teal-600" />
@@ -140,9 +141,10 @@ export default function Testimonials() {
               </div>
             </div>
           </div>
+          </div>
 
           {/* Prev / Next */}
-          <div className="flex items-center justify-between mt-8">
+          <div className="relative z-10 flex items-center justify-between mt-8">
             <button
               onClick={() => { go(-1); reset(); }}
               className="w-11 h-11 rounded-full border-2 border-teal-200 flex items-center justify-center text-teal-600 hover:border-teal-500 hover:bg-teal-50 transition-all duration-200"
@@ -175,34 +177,6 @@ export default function Testimonials() {
               <ChevronRight size={20} />
             </button>
           </div>
-        </div>
-
-        {/* Bottom cards row — all testimonials at a glance */}
-        <div className="reveal reveal-delay-2 mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {testimonials.map((item, i) => (
-            <button
-              key={item.name}
-              onClick={() => { goTo(i); reset(); }}
-              className={`text-left rounded-2xl p-5 border transition-all duration-200 ${
-                i === active
-                  ? 'border-pink-300 bg-pink-50 shadow-pink-glow'
-                  : 'border-gray-100 bg-white hover:border-teal-200 hover:bg-teal-50 shadow-card'
-              }`}
-            >
-              <div className="flex items-center gap-3 mb-3">
-                <div className={`w-9 h-9 rounded-full flex items-center justify-center font-heading font-bold text-xs flex-shrink-0 ${item.color}`}>
-                  {item.initials}
-                </div>
-                <div>
-                  <div className="font-heading font-semibold text-teal-800 text-xs leading-tight">{item.name}</div>
-                  <div className="font-body text-gray-400 text-xs">{item.location}</div>
-                </div>
-              </div>
-              <p className="font-body text-gray-500 text-xs leading-relaxed line-clamp-3">
-                "{item.text}"
-              </p>
-            </button>
-          ))}
         </div>
       </div>
     </section>
