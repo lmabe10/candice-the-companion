@@ -97,12 +97,6 @@ export default function Contact() {
                   <div className="font-body text-gray-600 text-sm">Contact for scheduling details</div>
                 </div>
               </div>
-
-              <div className="pt-4 border-t border-gray-100">
-                <p className="font-body text-gray-400 text-xs leading-relaxed italic">
-                  Additional contact details coming soon. Use the form to reach out directly.
-                </p>
-              </div>
             </div>
 
             {/* Quote */}
